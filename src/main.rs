@@ -1,27 +1,25 @@
-
-//Try changing the program so that the index of each element in the vector is also printed. The new output should look like this:
+//After checking the output of the above example, use the Point2D struct as a guide to add
+// a Complex struct to the example. When printed in the same way, the output should be:
 //
-//[0: 1, 1: 2, 2: 3]
+//Display: 3.3 + 7.2i
+//Debug: Complex { real: 3.3, imag: 7.2 }
 
 use std::fmt::{Display, Formatter, Error};
 
-struct List(Vec<i32>);
-
-impl Display for List {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
-        write!(f, "[")?;
-
-        for (count, v) in self.0.iter().enumerate() {
-            if count != 0 {
-                write!(f, ",")?;
-            }
-            write!(f, "{}:{}", count, v)?;
-        }
-        write!(f, "]")
-    }
+fn main() {
+    let c = Complex { real: 3.3, imag: 7.2 };
+    println!("{}", c);
+    println!("{:?}", c);
 }
 
-fn main() {
-    let l = List(vec![10, 20, 30, 40, 50]);
-    println!("{}", l);
+#[derive(Debug)]
+struct Complex {
+    real: f32,
+    imag: f32,
+}
+
+impl Display for Complex {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
+        write!(f, "{} + {}i", self.real, self.imag)
+    }
 }
