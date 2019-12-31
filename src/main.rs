@@ -12,5 +12,7 @@ mod display_formatting;
 mod display;
 mod tuples_activity;
 mod labels;
+mod while_control;
+mod for_and_iterator;
 
 fn main() {}

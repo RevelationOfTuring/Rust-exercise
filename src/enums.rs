@@ -85,7 +85,7 @@ mod tests {
     }
 
     #[test]
-    fn test_type_aliases(){
+    fn test_type_aliases() {
         // We can refer to each variant via its alias, not its long and inconvenient name
         let x = V::Subtract;
 
@@ -93,11 +93,12 @@ mod tests {
 
         // Explicitly `use` each name so they are available without manual scoping.
         use VeryVerboseEnumOfThingsToDoWithNumbers::{Add, Subtract};
-        let x = Add;
-
+        let _x = Add;
+        let _y = Subtract;
         // Automatically `use` each name inside `Work`.
         use Work::*;
-        let x = Divide;
+        let _x = Divide;
+        let _y = Multiply;
 
         // `enums` can be cast as integers.
         println!("{:?}", Number::Zero as i32);  // 0
@@ -106,8 +107,6 @@ mod tests {
         println!("{:06x}", Color::Red as i32);  // ff0000
         println!("{:06x}", Color::Blue as i32); // 0000ff
         println!("{:06x}", Color::Green as i32);// 00ff00
-
     }
-
 }
 

@@ -24,7 +24,7 @@ Transpose:
 mod tests{
     use std::fmt::{Display, Formatter, Error};
 
-    fn reverse(pair: (i32, bool)) -> (bool, i32) {
+    fn _reverse(pair: (i32, bool)) -> (bool, i32) {
         // `let` can be used to bind the members of a tuple to variables
         let (integer, boolean) = pair;
 
