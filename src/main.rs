@@ -1,19 +1,54 @@
 /*
-Slices are similar to arrays, but their size is not known at compile time.
-Instead, a slice is a two-word object, the first word is a pointer to the data, and the second word is the length of the slice.
-The word size is the same as usize, determined by the processor architecture eg 64 bits on an x86-64.
-Slices can be used to borrow a section of an array, and have the type signature &[T].
+Activity1
+Add a function rect_area which calculates the area of a rectangle (try using nested destructuring).
+
+Activity2
+Add a function square which takes a Point and a f32 as arguments,
+and returns a Rectangle with its lower left corner on the point,
+and a width and height corresponding to the f32.
 */
 
+// Activity1_1
+//fn rect_area(Rectangle { top_left: Point { x: x1, y: y1 }, bottom_right: Point { x: x2, y: y2 } }: Rectangle) -> f32 {
+//    (x2 - x1) * (y2 - y1)
+//}
 
-fn main() {
-    let arr = [1024; 100];
-    // convert array to slice: &arr is a slice
-    analyze_slice(&arr);
-    println!("{:?}", arr.get(99));
+// Activity1_2
+fn rect_area(r: &Rectangle) -> f32 {
+    (r.bottom_right.x - r.top_left.x) * (r.bottom_right.y - r.top_left.y)
 }
 
-fn analyze_slice(slice: &[i32]) {
-    println!("first element of the slice: {}", slice[0]);
-    println!("the slice has {} elements", slice.len());
+// Activity2
+fn square(p: Point, area: f32) -> Rectangle {
+    let width = area / 2f32;
+    let x_new = p.x + width;
+    Rectangle { top_left: p, bottom_right: Point { x: x_new, y: 2f32 } }
+}
+
+fn main() {
+    let r = Rectangle { top_left: Point { x: 1.1, y: 1.1 }, bottom_right: Point { x: 2.2, y: 4.4 } };
+    // Activity1
+    println!("{}", rect_area(&r));
+
+    // Activity2
+    println!("{:?}", square(Point { x: 1f32, y: 2f32 }, 100f32))
+}
+
+#[derive(Debug)]
+struct Person<'a> {
+    name: &'a str,
+    age: u8,
+}
+
+#[derive(Debug)]
+struct Point {
+    x: f32,
+    y: f32,
+}
+
+// Structs can be reused as fields of another struct
+#[derive(Debug)]
+struct Rectangle {
+    top_left: Point,
+    bottom_right: Point,
 }
