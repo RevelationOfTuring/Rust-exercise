@@ -6,7 +6,7 @@ Slices can be used to borrow a section of an array, and have the type signature 
 */
 
 
-fn main_5() {
+fn main() {
     let arr = [1024; 100];
     // convert array to slice: &arr is a slice
     analyze_slice(&arr);

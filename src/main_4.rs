@@ -43,7 +43,7 @@ fn transpose(matrix: &Matrix) -> Matrix {
     Matrix { 0: matrix.0, 1: matrix.2, 2: matrix.1, 3: matrix.3 }
 }
 
-fn main_4() {
+fn main() {
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     // Activity1
     println!("{:?}", matrix);

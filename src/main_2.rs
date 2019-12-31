@@ -6,7 +6,7 @@
 
 use std::fmt::{Display, Formatter, Error};
 
-fn main_2() {
+fn main() {
     let c = Complex { real: 3.3, imag: 7.2 };
     println!("{}", c);
     println!("{:?}", c);

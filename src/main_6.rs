@@ -1,4 +1,4 @@
-fn main_6() {
+fn main() {
     let point = Point { x: 1.024, y: 2.048 };
     // Make a new point by using struct update syntax to use the fields of our other one
     let point1 = Point { x: 4.096, ..point };

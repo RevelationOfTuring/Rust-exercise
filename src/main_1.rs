@@ -21,7 +21,7 @@ impl Display for List {
     }
 }
 
-fn main_1() {
+fn main() {
     let l = List(vec![10, 20, 30, 40, 50]);
     println!("{}", l);
 }
