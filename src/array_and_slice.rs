@@ -5,15 +5,18 @@ The word size is the same as usize, determined by the processor architecture eg 
 Slices can be used to borrow a section of an array, and have the type signature &[T].
 */
 
+#[cfg(test)]
+mod tests{
+    fn analyze_slice(slice: &[i32]) {
+        println!("first element of the slice: {}", slice[0]);
+        println!("the slice has {} elements", slice.len());
+    }
 
-fn main() {
-    let arr = [1024; 100];
-    // convert array to slice: &arr is a slice
-    analyze_slice(&arr);
-    println!("{:?}", arr.get(99));
-}
-
-fn analyze_slice(slice: &[i32]) {
-    println!("first element of the slice: {}", slice[0]);
-    println!("the slice has {} elements", slice.len());
+    #[test]
+    fn test_array_and_slice(){
+        let arr = [1024; 100];
+        // convert array to slice: &arr is a slice
+        analyze_slice(&arr);
+        println!("{:?}", arr.get(99));
+    }
 }
