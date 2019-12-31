@@ -11,5 +11,6 @@ mod display_vec;
 mod display_formatting;
 mod display;
 mod tuples_activity;
+mod labels;
 
 fn main() {}
