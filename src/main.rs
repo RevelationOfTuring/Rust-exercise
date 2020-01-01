@@ -19,5 +19,8 @@ mod match_enum;
 mod match_pointer_and_reference;
 mod destructure_struct;
 mod match_guard;
+mod match_binding;
+mod match_if_let;
+mod match_while_let;
 
 fn main() {}
