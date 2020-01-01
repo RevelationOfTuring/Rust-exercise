@@ -22,5 +22,7 @@ mod match_guard;
 mod match_binding;
 mod match_if_let;
 mod match_while_let;
+mod function;
+mod method;
 
 fn main() {}
