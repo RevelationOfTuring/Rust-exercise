@@ -31,5 +31,7 @@ mod function_closures_type_anonymity;
 mod function_closures_input_functions;
 mod function_closures_as_output_parameters;
 mod function_closures_examples_in_std;
+mod function_higher_order_functions;
+mod function_diverging_functions;
 
 fn main() {}
