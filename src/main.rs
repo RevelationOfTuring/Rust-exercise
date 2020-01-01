@@ -24,5 +24,7 @@ mod match_if_let;
 mod match_while_let;
 mod function;
 mod method;
+mod function_closures;
+mod function_closures_capturing;
 
 fn main() {}
