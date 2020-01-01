@@ -14,5 +14,10 @@ mod tuples_activity;
 mod labels;
 mod while_control;
 mod for_and_iterator;
+mod match_tuple;
+mod match_enum;
+mod match_pointer_and_reference;
+mod destructure_struct;
+mod match_guard;
 
 fn main() {}
