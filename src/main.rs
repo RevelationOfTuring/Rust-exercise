@@ -26,5 +26,5 @@ mod function;
 mod method;
 mod function_closures;
 mod function_closures_capturing;
-
+mod function_closures_as_input_parameters;
 fn main() {}

@@ -72,4 +72,36 @@ mod tests {
         // 再调用闭包consume时，已经无法捕获到movable了。编译报错。
 //        consume();
     }
+
+    #[test]
+    fn test_function_closures_capturing_3() {
+        /*
+        在竖线 | 之前使用 move 会强制闭包取得被捕获变量的所有权
+        */
+
+        // `Vec` 在语义上是不可复制的
+        let v = vec![1, 2, 3];
+
+        // v的所有权被强制转移给闭包contains
+        let contains = move |number| v.contains(number);
+
+        println!("{}", contains(&1));    // true
+        println!("{}", contains(&100));  // false
+
+        // 在闭包外已经无法再使用v了（无论读写）。因为借用检查不允许在变量被move之后继续使用它
+//        println!("{:?}", v);
+    }
+
+    #[test]
+    fn test_function_closures_capturing_4() {
+        // 在闭包的签名中删除 `move` 会导致闭包以不可变方式借用 `v`，即&v。
+        // 因此之后`v` 仍然可用，取消上面的注释也不会导致错误。
+        let v = vec![1, 2, 3];
+        let contains = |number| v.contains(number);
+        println!("{}", contains(&1));    // true
+        println!("{}", contains(&100));  // false
+
+        // v变量仍可用
+        println!("{:?}", v);
+    }
 }
