@@ -27,4 +27,9 @@ mod method;
 mod function_closures;
 mod function_closures_capturing;
 mod function_closures_as_input_parameters;
+mod function_closures_type_anonymity;
+mod function_closures_input_functions;
+mod function_closures_as_output_parameters;
+mod function_closures_examples_in_std;
+
 fn main() {}
