@@ -38,5 +38,6 @@ mod module_struct_visibility;
 mod module_use_declaration;
 mod module_super_and_self;
 mod module_file_hierarchy;
+mod attribute_dead_code;
 
 fn main() {}

@@ -48,6 +48,5 @@ mod tests {
         // 并且一个结构体中的私有字段不能访问到。
         // 报错！`content` 字段是私有的。
 //        println!("{}",close_box.contents);
-
     }
 }
