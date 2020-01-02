@@ -4,7 +4,7 @@
     于模块的可见性规则也适用于库。
 */
 
-// 链接到 `crates_library` 库，导入其中的项
+// 链接到 `crates_library` 库，导入其中的项。(需要事先生成好rlib类型的库文件)
 extern crate crates_library;
 
 fn main(){
