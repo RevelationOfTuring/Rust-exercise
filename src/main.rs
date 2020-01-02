@@ -39,5 +39,6 @@ mod module_use_declaration;
 mod module_super_and_self;
 mod module_file_hierarchy;
 mod attribute_dead_code;
+mod attribute_cfg;
 
 fn main() {}
