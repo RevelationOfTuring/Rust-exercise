@@ -36,5 +36,7 @@ mod function_diverging_functions;
 mod module_visibility;
 mod module_struct_visibility;
 mod module_use_declaration;
+mod module_super_and_self;
+mod module_file_hierarchy;
 
 fn main() {}
