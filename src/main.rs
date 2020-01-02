@@ -33,5 +33,8 @@ mod function_closures_as_output_parameters;
 mod function_closures_examples_in_std;
 mod function_higher_order_functions;
 mod function_diverging_functions;
+mod module_visibility;
+mod module_struct_visibility;
+mod module_use_declaration;
 
 fn main() {}
