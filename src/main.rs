@@ -41,4 +41,5 @@ mod module_file_hierarchy;
 mod attribute_dead_code;
 mod attribute_cfg;
 mod generics;
+mod generics_function;
 fn main() {}

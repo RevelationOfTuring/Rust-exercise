@@ -11,7 +11,7 @@
 
 
 // 例如定义一个泛型函数generics_function，它可接受类型为T的任何参数arg：
-fn generics_function<T>(arg:T){
+fn generics_function<T>(arg: T) {
     println!("generics_function");
 }
 
@@ -19,7 +19,7 @@ fn generics_function<T>(arg:T){
 // 即使 T 在之前被定义为 struct，这里的 T 仍然代表泛型。
 
 #[cfg(test)]
-mod tests{
+mod tests {
     // 泛型语法的使用的例子
 // 一个具体类型 `S`
     #[derive(Debug)]
@@ -27,6 +27,7 @@ mod tests{
 
     // 在定义类型 `Single` 时，第一次使用类型 `S` 之前没有写 `<S>`。
 // 因此，`Single` 是个具体类型，`S` 取上面的定义。
+    #[derive(Debug)]
     struct Single(S);
 //            ^ 这里是 `Single` 对类型 `S` 的第一次使用。
 
@@ -36,20 +37,20 @@ mod tests{
     struct SingleGen<T>(T);
 
     #[test]
-    fn test_generics(){
+    fn test_generics() {
         // `Single` 是具体类型，并且显式地使用类型 `S`。
-        let _s = Single(S);
+        let s = Single(S);
+        println!("{:?} {:?}", s, s.0);
 
         // 创建一个 `SingleGen<char>` 类型的变量 `char_object`，并令其值为 `SingleGen('a')`
         // 这里的 `SingleGen` 的类型参数是显式指定的。
         let char_object: SingleGen<char> = SingleGen('a');
 
-        // `SingleGen` 的类型参数也可以隐式地指定。
-        let s_object =SingleGen(S);
+        // `SingleGen` 的类型参数也可以`隐式地`指定。
+        let s_object = SingleGen(S);
         let i = SingleGen(1024);
         let str_object = SingleGen("michael.w");
 
-        println!("{:?} {:?} {:?} {:?}",char_object,s_object,i,str_object);
-
+        println!("{:?} {:?} {:?} {:?}", char_object, s_object, i, str_object);
     }
 }
