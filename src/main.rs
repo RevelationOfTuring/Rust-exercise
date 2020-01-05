@@ -46,5 +46,6 @@ mod generics_implementation;
 mod generics_trait;
 mod generics_bounds;
 mod generics_empty_bounds;
+mod generics_multiple_bounds;
 
 fn main() {}
