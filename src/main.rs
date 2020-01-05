@@ -44,5 +44,6 @@ mod generics;
 mod generics_function;
 mod generics_implementation;
 mod generics_trait;
+mod generics_bounds;
 
 fn main() {}
