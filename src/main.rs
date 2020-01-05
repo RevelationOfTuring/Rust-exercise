@@ -43,5 +43,6 @@ mod attribute_cfg;
 mod generics;
 mod generics_function;
 mod generics_implementation;
+mod generics_trait;
 
 fn main() {}
