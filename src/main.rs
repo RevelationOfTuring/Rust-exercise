@@ -49,5 +49,6 @@ mod generics_empty_bounds;
 mod generics_multiple_bounds;
 mod generics_where_clauses;
 mod generics_new_type_idiom;
+mod generics_associated_items_problem;
 
 fn main() {}
