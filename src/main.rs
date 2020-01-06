@@ -51,5 +51,6 @@ mod generics_where_clauses;
 mod generics_new_type_idiom;
 mod generics_associated_items_problem;
 mod generics_associated_types;
+mod error_handling_panic;
 
 fn main() {}
