@@ -55,5 +55,6 @@ mod error_handling_panic;
 mod error_handling_option_and_unwrap;
 mod error_handling_unpacking_options_with_question_mark;
 mod error_handling_option_and_unwrap_combinator_map;
+mod error_handling_option_and_unwrap_combinator_and_then;
 
 fn main() {}

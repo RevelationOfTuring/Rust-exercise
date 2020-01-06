@@ -4,6 +4,7 @@
     这时，可以使用组合算子（combinator），以模块化的风格来管理控制流。
 
     Option 有一个内置方法 map()，这个组合算子可用于 Some -> Some 和 None -> None 这样的简单映射。
+    即，输入是Option，输出也是Option的情况。
     多个不同的 map() 调用可以串起来，这样更加灵活。
 */
 
