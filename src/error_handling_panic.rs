@@ -28,6 +28,7 @@
 mod tests {
     fn occurs_panic(mark: &str) {
         if mark == "panic" {
+            // 显式调用panic
             panic!("here is a panic!")
         }
         println!("there is no panic!")
