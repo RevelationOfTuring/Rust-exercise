@@ -53,5 +53,6 @@ mod generics_associated_items_problem;
 mod generics_associated_types;
 mod error_handling_panic;
 mod error_handling_option_and_unwrap;
+mod error_handling_unpacking_options_with_question_mark;
 
 fn main() {}
