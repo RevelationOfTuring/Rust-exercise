@@ -58,5 +58,5 @@ mod error_handling_option_and_unwrap_combinator_map;
 mod error_handling_option_and_unwrap_combinator_and_then;
 mod error_handling_result;
 mod error_handling_result_map;
-
+mod error_handling_result_aliases;
 fn main() {}
