@@ -60,5 +60,6 @@ mod error_handling_result;
 mod error_handling_result_map;
 mod error_handling_result_aliases;
 mod error_handling_result_early_returns;
+mod error_handling_result_question_mark;
 
 fn main() {}
