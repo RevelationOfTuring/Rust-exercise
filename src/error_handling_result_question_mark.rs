@@ -45,6 +45,7 @@ mod tests {
             如果使用 try! 的话，前面的 multiply 函数看起来会像是这样：
     */
 
+    /* 由于编译会报错，注释掉
     fn multiply_v2(first_num_str: &str, second_num_str: &str) -> Result<i32, ParseIntError> {
         let n1 = try!(first_num_str.parse::<i32>());
         let n2 = try!(second_num_str.parse::<i32>());
@@ -67,4 +68,5 @@ mod tests {
         */
 
     }
+    */
 }
