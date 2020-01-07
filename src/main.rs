@@ -66,5 +66,6 @@ mod error_handling_multiple_error_types_pull_result_out_of_option;
 mod error_handling_multiple_error_types_define_an_error_type;
 mod error_handling_multiple_error_types_boxing_errors;
 mod error_handling_multiple_error_types_other_uses_of_question_mark;
+mod error_handling_multiple_error_types_wrapping_errors;
 
 fn main() {}

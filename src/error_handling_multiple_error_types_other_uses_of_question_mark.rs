@@ -63,5 +63,9 @@ mod tests {
         let empty = Vec::new();
         print_result(double_first(empty))
         // 输出:Box Error: invalid first item to double
+
+        // 注：
+        //   这段代码现在已经很清晰了。相比原始的 panic，它就像是把所有的 unwrap 调用都换成 ? 一样。
+        //   与 panic 相比，这样做的区别在于返回类型是 Result，因而必须在顶层解构它们。
     }
 }
