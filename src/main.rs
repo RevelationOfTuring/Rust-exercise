@@ -69,5 +69,6 @@ mod error_handling_multiple_error_types_other_uses_of_question_mark;
 mod error_handling_multiple_error_types_wrapping_errors;
 mod error_handling_multiple_error_types_iterating_over_results;
 mod static_and_dynamic_dispatch;
+mod trait_object;
 
 fn main() {}
