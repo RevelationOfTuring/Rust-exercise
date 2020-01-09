@@ -5,6 +5,8 @@
 
 #[cfg(test)]
 mod tests {
+    use std::fmt::Debug;
+
     //  条件一：当trait有Self:Sized约束时：
     trait Foo where Self: Sized {
         fn foo(&self);
@@ -183,5 +185,39 @@ mod tests {
         let p = &mut x as &mut dyn Double3;
         p.double();
         assert_eq!(2048, x.0);  // 成功编译并运行
+    }
+
+    //  条件四：当函数有泛型参数时：
+    trait Trait {
+        fn generic_func<T: Debug>(&self, a: T);
+    }
+
+    struct Foo4;
+
+    impl Trait for Foo4 {
+        fn generic_func<T: Debug>(&self, a: T) {
+            println!("{:?}", a);
+        }
+    }
+
+    #[test]
+    fn test_object_safe_v7() {
+        let foo4 = Foo4;
+        // 编译器会隐式推导出泛型T为&str
+        foo4.generic_func("michael.w");
+
+        // 尝试使用trait object
+        // 编译报错：error[E0038]: the trait `object_safe::tests::Trait` cannot be made into an object
+//        let p = &foo4 as &dyn Trait;
+//        p.generic_func("michael.w");
+
+        /*
+            p是 trait object，通过p.来调用方法是通过虚函数表进行查找并调用的。
+            现在需要被查找的函数成了`泛型函数` ，而泛型函数在Rust中是编译阶段`自动展开`的,
+            即，generic_func()函数实际上有许多不同的版本 。
+
+            Rust选择的解决方案是:禁止使用 trait object来调用泛型函数，泛型函数是从虚函数表中剔除了的 。
+            这个行为跟 C++是一样的。C++中同样规定了类的虚成员函数不可以是template方法 。
+        */
     }
 }
