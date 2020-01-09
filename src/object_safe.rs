@@ -129,4 +129,59 @@ mod tests {
         p.double();
         println!("{}", x);  // 编译通过，x自身扩大了2倍
     }
+
+    //  条件三：当函数第一个参数不是self时：
+    //  如果有 trait中有“静态方法”，那这个“静态方法”是不满足 object safe条件的。
+    //  显然，编译器没有办法把静态方法加入到虚函数表中。
+
+    trait Double2 {
+        // 静态方法
+        fn double_static(num: i32) -> i32;
+        fn double(&mut self);
+    }
+
+    struct Foo2(i32);
+
+    impl Double2 for Foo2 {
+        fn double_static(num: i32) -> i32 { num * 2 }
+
+        fn double(&mut self) { self.0 *= 2 }
+    }
+
+    #[test]
+    fn test_object_safe_v5() {
+        // 调用trait中的静态方法
+        assert_eq!(20, Foo2::double_static(10));
+        let mut foo2 = Foo2(1024);
+        // 尝试产生trait object
+        // 这步编译器直接报错：error[E0038]: the trait `object_safe::tests::Double2` cannot be made into an object
+//        let p = &mut foo2 as &mut dyn Double2;
+    }
+
+    // 如果一个trait中存在静态方法，又希望通过trait object来调用非静态方法，
+    // 只需要在静态方法后面加上Self:Sized, 将它从虚函数表中剔除。
+    trait Double3 {
+        fn double_static(num: i32) -> i32 where Self: Sized;
+        // Self: Sized -> 从虚函数表中剔除
+        fn double(&mut self);
+    }
+
+    struct Foo3(i32);
+
+    impl Double3 for Foo3 {
+        fn double_static(num: i32) -> i32 where Self: Sized { num * 2 }
+
+        fn double(&mut self) { self.0 *= 2 }
+    }
+
+    #[test]
+    fn test_object_safe_v6() {
+        // 静态方法调用
+        assert_eq!(20, Foo3::double_static(10));
+        let mut x = Foo3(1024);
+        // 使用trait object
+        let p = &mut x as &mut dyn Double3;
+        p.double();
+        assert_eq!(2048, x.0);  // 成功编译并运行
+    }
 }
