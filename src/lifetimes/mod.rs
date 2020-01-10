@@ -16,6 +16,7 @@ mod methods;
 mod structs;
 mod traits;
 mod bounds;
+mod coercion;
 
 #[cfg(test)]
 mod tests {
