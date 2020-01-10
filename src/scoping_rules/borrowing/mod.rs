@@ -12,6 +12,7 @@
 mod mutability;
 mod freezing;
 mod aliasing;
+mod the_ref_pattern;
 
 #[cfg(test)]
 mod tests {
