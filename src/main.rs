@@ -72,5 +72,6 @@ mod static_and_dynamic_dispatch;
 mod trait_object;
 mod object_safe;
 mod impl_trait;
+mod scoping_rules;
 
 fn main() {}
