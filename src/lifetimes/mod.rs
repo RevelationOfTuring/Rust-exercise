@@ -18,6 +18,7 @@ mod traits;
 mod bounds;
 mod coercion;
 mod r#static;
+mod elision;
 
 #[cfg(test)]
 mod tests {
