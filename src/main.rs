@@ -74,5 +74,6 @@ mod object_safe;
 mod impl_trait;
 mod scoping_rules;
 mod lifetimes;
+mod traits;
 
 fn main() {}
