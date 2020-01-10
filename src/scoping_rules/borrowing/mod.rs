@@ -11,6 +11,7 @@
 */
 mod mutability;
 mod freezing;
+mod aliasing;
 
 #[cfg(test)]
 mod tests {

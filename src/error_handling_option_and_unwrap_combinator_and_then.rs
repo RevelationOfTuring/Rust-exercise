@@ -47,6 +47,7 @@ mod tests {
 
     // 要做一份好菜，我们需要原材料和食谱。
     // 我们可以借助一系列 `match` 来表达这个逻辑：
+    #[allow(dead_code)]
     fn cook_v1(food: Food) -> Option<Food> {
         match have_ingredients(food) {
             // food为Sushi

@@ -18,13 +18,13 @@ mod tests {
 
     // 此函数接受一个对 Book 类型的引用
     fn borrow_book(book: &Book) {
-        println!("I immutably borrowed {} - {} edition", book.title, book.year)
+        println!("I immutably borrowed {} - {} - {} edition", book.author, book.title, book.year)
     }
 
     // 此函数接受一个对可变的 Book 类型的引用，它把年份 `year` 改为 2020 年
     fn new_edition(book: &mut Book) {
         book.year = 2020;
-        println!("I mutably borrowed {} - {} edition", book.title, book.year)
+        println!("I mutably borrowed {} - {} - {} edition", book.author, book.title, book.year)
     }
 
     #[test]

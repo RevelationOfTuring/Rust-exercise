@@ -46,7 +46,7 @@ mod tests {
     fn test_generics_implementation() {
         let s = S { val: 10.24 };
         let gen_s = GenS { gen_val: "michael.w" };
-        println!("{}", s.val);
-        println!("{}", gen_s.gen_val);
+        println!("{}", s.value());
+        println!("{}", gen_s.value());
     }
 }
