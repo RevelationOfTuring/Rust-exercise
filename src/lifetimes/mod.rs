@@ -11,6 +11,7 @@
     然而，借用的作用域则是由使用引用的位置决定的。
 */
 mod explicit_annotation;
+mod functions;
 
 #[cfg(test)]
 mod tests {
