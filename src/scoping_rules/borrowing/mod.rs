@@ -10,6 +10,7 @@
     也就是说，当存在引用指向一个对象时，该对象`不能被销毁`。
 */
 mod mutability;
+mod freezing;
 
 #[cfg(test)]
 mod tests {
