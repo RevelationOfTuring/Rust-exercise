@@ -14,6 +14,7 @@ mod explicit_annotation;
 mod functions;
 mod methods;
 mod structs;
+mod traits;
 
 #[cfg(test)]
 mod tests {
