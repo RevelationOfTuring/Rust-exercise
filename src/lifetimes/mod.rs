@@ -12,6 +12,7 @@
 */
 mod explicit_annotation;
 mod functions;
+mod methods;
 
 #[cfg(test)]
 mod tests {
