@@ -17,6 +17,7 @@ mod structs;
 mod traits;
 mod bounds;
 mod coercion;
+mod r#static;
 
 #[cfg(test)]
 mod tests {
