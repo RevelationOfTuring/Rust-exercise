@@ -7,6 +7,7 @@
     对任何数据类型都可以实现 trait。
 */
 mod derive;
+mod returning_traits_with_dyn;
 
 #[cfg(test)]
 mod tests {
