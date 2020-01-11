@@ -12,6 +12,7 @@ mod operator_overloading;
 mod drop;
 mod iterators;
 mod impl_trait;
+mod clone;
 
 #[cfg(test)]
 mod tests {
