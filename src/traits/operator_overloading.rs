@@ -16,7 +16,6 @@
 #[cfg(test)]
 mod tests {
     use std::ops;
-    use std::ops::Add;
 
     struct Test1;
 

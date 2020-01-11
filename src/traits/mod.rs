@@ -11,6 +11,7 @@ mod returning_traits_with_dyn;
 mod operator_overloading;
 mod drop;
 mod iterators;
+mod impl_trait;
 
 #[cfg(test)]
 mod tests {
