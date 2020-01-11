@@ -9,6 +9,7 @@
 mod derive;
 mod returning_traits_with_dyn;
 mod operator_overloading;
+mod drop;
 
 #[cfg(test)]
 mod tests {
