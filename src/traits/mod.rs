@@ -6,6 +6,7 @@
 
     对任何数据类型都可以实现 trait。
 */
+mod derive;
 
 #[cfg(test)]
 mod tests {
