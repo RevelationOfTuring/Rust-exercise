@@ -13,6 +13,7 @@ mod drop;
 mod iterators;
 mod impl_trait;
 mod clone;
+mod super_traits;
 
 #[cfg(test)]
 mod tests {
