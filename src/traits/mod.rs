@@ -14,6 +14,7 @@ mod iterators;
 mod impl_trait;
 mod clone;
 mod super_traits;
+mod disambiguating_overlapping_traits;
 
 #[cfg(test)]
 mod tests {
