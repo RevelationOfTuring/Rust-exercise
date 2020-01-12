@@ -17,3 +17,4 @@ mod result;
 mod result_with_question_mark;
 mod panic;
 mod hashmap;
+mod alternate_or_custom_key_types;
