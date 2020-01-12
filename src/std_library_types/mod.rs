@@ -16,3 +16,4 @@ mod option;
 mod result;
 mod result_with_question_mark;
 mod panic;
+mod hashmap;
