@@ -16,6 +16,8 @@
 
     重点提示：Rust中的vector，即Vec<T>只实现了Debug trait,并未实现Display。
     所以在打印vector的时候，要使用"{:?}"
+
+    更多Vec的方法可以在 std::vec 模块中找到。
 */
 
 #[cfg(test)]
