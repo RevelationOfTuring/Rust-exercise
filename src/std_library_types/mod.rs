@@ -11,3 +11,4 @@
 mod box_stack_heap;
 mod vector;
 mod strings;
+mod string_literals_and_escapes;
