@@ -62,4 +62,72 @@ mod tests {
         println!("{}", raw_str_longer_delimiter);
         assert_eq!(raw_str_longer_delimiter, "A string with \"# in it. And even \"##!")
     }
+
+    #[test]
+    fn test_byte_string() {
+        // 切记：&str 和 String 都必须是合法有效的 UTF-8 序列
+        // 如果想要非 UTF-8 字符串，或者一个字节数组（字节数组中大部分为文本）
+        // 可以使用`字节串`，byte string
+
+        // 这是个字节数组，并不是一个 &str
+        // 字符串字面量前加b，表示为其类型未字节数组，并非&str
+        let byte_string = b"This is a byte string";
+
+        // 需要注意的是：字节数组没有实现Display trait
+//        println!("{}", byte_string);
+        println!("{:?}", byte_string);
+        // 打印：[84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 98, 121, 116, 101, 32, 115, 116, 114, 105, 110, 103]
+
+        // 字节串可以使用单字节的转义字符
+        let escaped = b"\x52\x75\x73\x74 as bytes";
+        println!("{:?}", escaped);
+        // 打印：[82, 117, 115, 116, 32, 97, 115, 32, 98, 121, 116, 101, 115]
+
+        // 但是不能使用unicode码的转义字符
+        // 编译报错：error: unicode escape sequences cannot be used as a byte or in a byte string
+//        let escaped_unicode = b"\u{211D} is not allowed";
+
+        // 原始字节串和原始字符串的写法一样，在字面量前面加br
+        let raw_byte_string = br"\\\n";
+        println!("{:?}", raw_byte_string);
+        // 打印：[92, 92, 92, 110]
+        // 字面量中的所有字符都没有进行转义，然后放到了字节数组中
+
+        let raw_byte_string = br#"\""\n"#;
+        // 字节数组中包含"
+        println!("{:?}", raw_byte_string);
+        // 打印：[92, 34, 34, 92, 110]
+
+        /***** 把字节串bytestring转换为 &str 可能失败 *****/
+        let raw_byte_string = br"\u{211D}";
+        println!("{:?}", raw_byte_string);
+        // 打印：[92, 117, 123, 50, 49, 49, 68, 125]
+
+        // 字节串 -> &str
+        // 成功
+        if let Ok(converted_str) = std::str::from_utf8(raw_byte_string) {
+            println!("byte string -> &str: {}", converted_str);
+            assert_eq!(converted_str, r"\u{211D}");
+        }
+
+        // 当字节串不使用utf-8编码时
+        // 例子：采用 SHIFT-JIS 编码的 "ようこそ"
+        let byte_string_not_uft8 = b"\x82\xe6\x82\xa8\x82\xb1\x82";
+
+        // 再看转换结果
+        match std::str::from_utf8(byte_string_not_uft8) {
+            Ok(s) => println!("convert successfully: {}", s),
+            Err(e) => println!("convert failed: {}", e),
+        }
+        // 打印：convert failed: invalid utf-8 sequence of 1 bytes from index 0
+        // 转换失败
+    }
+
+    /*
+        ps.若需要在编码间进行转换，请使用 encoding crate（一个第三方crate）
+        传送门：https://crates.io/crates/encoding
+
+        Rust手册：详细书写字符串字面量和转义字符的方法
+        传送门：https://doc.rust-lang.org/reference/tokens.html
+    */
 }
