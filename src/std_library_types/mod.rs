@@ -13,3 +13,4 @@ mod vector;
 mod strings;
 mod string_literals_and_escapes;
 mod option;
+mod result;
