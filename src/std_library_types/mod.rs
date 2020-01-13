@@ -19,3 +19,4 @@ mod panic;
 mod hashmap;
 mod alternate_or_custom_key_types;
 mod hashset;
+mod rc;
