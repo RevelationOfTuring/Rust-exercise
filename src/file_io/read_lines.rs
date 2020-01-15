@@ -14,7 +14,7 @@ mod tests {
     use std::io::BufRead;
 
     #[test]
-    fn test_read_write() {
+    fn test_read_lines() {
         let file = File::open("src/file_io/rust.txt").unwrap();
         // 生成一个行迭代器
         let lines_iterator = io::BufReader::new(file).lines();
