@@ -76,5 +76,6 @@ mod scoping_rules;
 mod lifetimes;
 mod traits;
 mod std_library_types;
+mod path;
 
 fn main() {}
