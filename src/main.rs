@@ -77,5 +77,6 @@ mod lifetimes;
 mod traits;
 mod std_library_types;
 mod path;
+mod file_io;
 
 fn main() {}
