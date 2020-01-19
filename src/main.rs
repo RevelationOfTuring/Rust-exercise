@@ -78,5 +78,6 @@ mod traits;
 mod std_library_types;
 mod path;
 mod file_io;
+mod macro_rules;
 
 fn main() {}
