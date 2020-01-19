@@ -22,6 +22,7 @@
         有时你需要能够接受不定数目参数的接口，比如 println!，根据格式化字符串的不同，它需要接受任意多的参数（稍后详述）。
 */
 mod syntax;
+mod dont_repeat_yourself;
 
 #[cfg(test)]
 mod tests {
