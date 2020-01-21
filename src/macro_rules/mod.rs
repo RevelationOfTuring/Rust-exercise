@@ -23,6 +23,7 @@
 */
 mod syntax;
 mod dont_repeat_yourself;
+mod domain_specific_languages;
 
 #[cfg(test)]
 mod tests {
