@@ -79,5 +79,29 @@ mod std_library_types;
 mod path;
 mod file_io;
 mod macro_rules;
+mod thread;
 
-fn main() {}
+fn main() {
+    // 用于多线程的demo
+    demo_for_thread();
+}
+
+// 多线程的demo
+fn demo_for_thread() {
+    const THREAD_NUM: i32 = 10;
+    // 用于存放各个线程handler的Vec
+    let mut thread_handlers = vec![];
+
+    for i in 0..THREAD_NUM {
+        let handler = std::thread::spawn(
+            move || println!("THREAD {} is running", i)
+        );
+        //handler存入Vec
+        thread_handlers.push(handler);
+    }
+
+    for handler in thread_handlers {
+        // 等待线程结束。返回一个结果
+        let _ = handler.join();
+    }
+}
