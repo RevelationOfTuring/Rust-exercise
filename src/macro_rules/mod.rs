@@ -24,6 +24,7 @@
 mod syntax;
 mod dont_repeat_yourself;
 mod domain_specific_languages;
+mod variadic_interfaces;
 
 #[cfg(test)]
 mod tests {
